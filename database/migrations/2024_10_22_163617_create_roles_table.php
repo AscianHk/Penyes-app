@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
+            $table->boolean('isAdmin')->default(false);
             $table->foreignIdFor(User::class);
-            $table->foreignIdFor(crews::class);
-            $table->date('year');
+            $table->foreignIdFor(crews::class)->nullable();
+            $table->date('year')->nullable();
             $table->timestamps();
         });
     }

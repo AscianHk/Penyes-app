@@ -1,0 +1,8 @@
+2024-11-04 18:52:54.918 [info] Extension host with pid 42725 started
+2024-11-04 18:52:54.918 [info] Skipping acquiring lock for /home/ascianhk/Descargas/2-Daw/Proyectos/Penyes-app/User/workspaceStorage/ed868eb19a19fb7ab0a087ca24e8772c.
+2024-11-04 18:52:54.961 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2024-11-04 18:52:54.971 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2024-11-04 18:52:55.031 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-11-04 18:52:55.099 [info] Eager extensions activated
+2024-11-04 18:52:55.107 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-11-04 18:52:55.111 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'

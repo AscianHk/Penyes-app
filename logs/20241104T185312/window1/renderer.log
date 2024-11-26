@@ -1,0 +1,4 @@
+2024-11-04 18:53:13.192 [info] Started local extension host with pid 43295.
+2024-11-04 18:53:15.875 [info] [perf] Render performance baseline is 33ms
+2024-11-04 18:53:35.936 [warning] [backup tracker] suspended, ignoring unregister event file:///home/ascianhk/Descargas/2-Daw/Proyectos/Penyes-app/package.json 
+2024-11-04 18:53:35.937 [warning] [backup tracker] suspended, ignoring unregister event file:///home/ascianhk/Descargas/2-Daw/Proyectos/Penyes-app/vendor/laravel/framework/src/Illuminate/Foundation/resources/exceptions/renderer/package.json 
