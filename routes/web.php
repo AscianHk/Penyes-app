@@ -41,7 +41,6 @@ Route::get('/AdminPanel', function(){
     return view('AdminPanel');
 });
 
-
 Route::post('/register', function(Request $request){
     $user =  new User();
     $role = new roles();
