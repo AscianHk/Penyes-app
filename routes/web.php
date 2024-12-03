@@ -1,17 +1,21 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\EsAdmin;
+use App\Models\crews;
 use App\Models\roles;
 use App\Models\User;
-use Illuminate\Auth\Events\Logout;
-use Illuminate\Container\Attributes\Auth as AttributesAuth;
-use Illuminate\Foundation\Application;
+use Illuminate\Auth\Events\Login;
+// use Illuminate\Auth\Events\Logout;
+// use Illuminate\Container\Attributes\Auth as AttributesAuth;
+// use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
+
+// use Inertia\Inertia;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,9 +34,29 @@ Route::get('/logout', function(){
     return redirect('/login');
 });
 
+Route::get('/deleteacc', function(){
+    $id = optional(Auth::user())->id;
+    DB::delete("DELETE FROM users WHERE id='$id'");
+    DB::delete("DELETE FROM roles WHERE user_id='$id'");
+
+    return redirect('/login');
+});
+
 Route::get('/register', function(){
     Return view('register');
 });
+
+
+Route::get('/crews', function($penyas){
+    return view('crews')
+    ->with(crews::class, $penyas);
+});
+
+
+
+
+
+
 Route::get('/UserPanel', function(){
     return view('/userPanel');
 });

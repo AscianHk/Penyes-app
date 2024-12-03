@@ -30,21 +30,16 @@ class EsAdmin
             $user = Auth::user();
     
             // dd($user->role->isAdmin);
-            if($user && $user->role && $user->role->isAdmin === 1){ 
+            if($user && $user->role && $user->role->isAdmin ){ 
                 return redirect('/AdminPanel');}
             else{
             return redirect('/UserPanel');
             }
+        }else{
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records.',
             ])->onlyInput('email');
         }
-        
-        
-    
-        
-    
-    
     }
 }
 
