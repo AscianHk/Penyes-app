@@ -49,4 +49,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(roles::class,'roles_id');
     }
+    public function applications()
+{
+    return $this->hasMany(Application::class);
 }
+public function crews()
+{
+    return $this->belongsToMany(crews::class, 'users_crews', 'user_id', 'crews_id')
+                ->withPivot('year');  // 'year' es el campo adicional que tenemos en la tabla pivote
+}
+}
+

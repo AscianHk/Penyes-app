@@ -29,7 +29,7 @@ class UsersCrewsController extends Controller
      */
     public function store(Storeusers_crewsRequest $request)
     {
-        //
+        
     }
 
     /**

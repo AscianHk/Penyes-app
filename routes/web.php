@@ -1,14 +1,13 @@
 <?php
 
-// use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\ApplicationController;
 use App\Http\Middleware\EsAdmin;
+use App\Models\Application;
 use App\Models\crews;
 use App\Models\roles;
 use App\Models\User;
 use Illuminate\Auth\Events\Login;
-// use Illuminate\Auth\Events\Logout;
-// use Illuminate\Container\Attributes\Auth as AttributesAuth;
-// use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -22,16 +21,16 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function(){
-    return view('login');
+    return view('./Auth/login');
 });
 
-Route::get('/verifyAuth', function(Request $request){
+Route::post('/verifyAuth', function(Request $request){
     
 })->middleware(EsAdmin::class);
 
 Route::get('/logout', function(){
     Auth::logout();
-    return redirect('/login');
+    return redirect('/');
 });
 
 Route::get('/deleteacc', function(){
@@ -39,30 +38,43 @@ Route::get('/deleteacc', function(){
     DB::delete("DELETE FROM users WHERE id='$id'");
     DB::delete("DELETE FROM roles WHERE user_id='$id'");
 
-    return redirect('/login');
+    return redirect('/');
 });
 
 Route::get('/register', function(){
-    Return view('register');
+    Return view('./Auth/register');
 });
 
 
-Route::get('/crews', function($penyas){
+Route::get('/crews', function(){
     return view('crews')
-    ->with(crews::class, $penyas);
+    ->with('crews', crews::all());
 });
 
+Route::get('/crews/{id}', function($id){
+    $crew = crews::findOrFail($id);
+    return view('crew')->with('crews', $crew); 
+});
 
+Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
+    Route::post('/applications', [ApplicationController::class, 'store'])->name('applications.store');
+    Route::post('/applications/join', [ApplicationController::class, 'store'])->name('applications.store');
+
+    Route::patch('/applications/{application}', [ApplicationController::class, 'updateStatus'])->name('applications.update');
+});
 
 
 
 
 Route::get('/UserPanel', function(){
-    return view('/userPanel');
+    return view('./Panels/userPanel')
+    ->with('crews', crews::all());
 });
 
 Route::get('/AdminPanel', function(){
-    return view('AdminPanel');
+    return view('./Panels/AdminPanel');
 });
 
 Route::post('/register', function(Request $request){
@@ -86,6 +98,11 @@ Route::post('/register', function(Request $request){
 
     return redirect('/');
 });
+
+
+// Route::get('/pruebas', function(){
+    
+// }
 
 // Route::get('/dashboard', function () {
     // return Inertia::render('Dashboard');

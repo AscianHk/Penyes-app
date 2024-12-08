@@ -1,3 +1,7 @@
-@foreach ($penyas as $penya)
-    <h1>{{$penya->name}}</h1>
+
+<ul>
+@foreach ($crews as $crew)
+    <li><a href="/crews/{{$crew->id}}">{{$crew->name}}</a></li>
+    <p>{{$crew->slogan}}<p>
 @endforeach
+</ul>

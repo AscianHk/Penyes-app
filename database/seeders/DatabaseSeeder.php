@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\roles;
 use App\Models\User;
+use App\Models\crews;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -32,5 +33,46 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
             // 'date'=>'11-11-2024'
         ]);
+
+        // crews::factory()->create([
+        //     [ 
+        //     'id' => 1, 
+        //     'name' => 'Peña Los Amigos', 
+        //     'color' => 'Rojo', 
+        //     'slogan' => 'Amigos para siempre', 
+        //     'capacity' => 50, 
+        //     'foundation_date' => '2001-05-12', 
+        // ], 
+        //     [ 'id' => 2, 
+        //     'name' => 'Peña Los Guerreros', 
+        //     'color' => 'Azul', 
+        //     'slogan' => 'Luchando juntos', 
+        //     'capacity' => 75, 'foundation_date' => '1999-08-25', 
+        // ], 
+        //     [ 'id' => 3, 
+        //     'name' => 'Peña La Unión', 
+        //     'color' => 'Verde', 
+        //     'slogan' => 'Unidos somos fuertes', 
+        //     'capacity' => 60, 
+        //     'foundation_date' => '2005-11-30', 
+        // ], 
+        //     [ 'id' => 4, 
+        //     'name' => 'Peña Las Estrellas', 
+        //     'color' => 'Amarillo', 
+        //     'slogan' => 'Brillamos juntos', 
+        //     'capacity' => 80, 
+        //     'foundation_date' => '2000-03-18', 
+        // ], 
+        //     [ 'id' => 5, 
+        //     'name' => 'Peña Los Valientes', 
+        //     'color' => 'Naranja', 
+        //     'slogan' => 'Valentía y honor', 
+        //     'capacity' => 90, 
+        //     'foundation_date' => '2010-06-21', 
+        // ],
+        // ]);
+
+        $crews = [ [ 'id' => 1, 'name' => 'Peña Los Amigos', 'color' => 'Rojo', 'slogan' => 'Amigos para siempre', 'capacity' => 50, 'foundation_date' => '2001-05-12', ], [ 'id' => 2, 'name' => 'Peña Los Guerreros', 'color' => 'Azul', 'slogan' => 'Luchando juntos', 'capacity' => 75, 'foundation_date' => '1999-08-25', ], [ 'id' => 3, 'name' => 'Peña La Unión', 'color' => 'Verde', 'slogan' => 'Unidos somos fuertes', 'capacity' => 60, 'foundation_date' => '2005-11-30', ], [ 'id' => 4, 'name' => 'Peña Las Estrellas', 'color' => 'Amarillo', 'slogan' => 'Brillamos juntos', 'capacity' => 80, 'foundation_date' => '2000-03-18', ], [ 'id' => 5, 'name' => 'Peña Los Valientes', 'color' => 'Naranja', 'slogan' => 'Valentía y honor', 'capacity' => 90, 'foundation_date' => '2010-06-21', ], ]; foreach ($crews as $crew) { Crews::factory()->create($crew); 
+        }
     }
 }
