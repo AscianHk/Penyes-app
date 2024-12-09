@@ -115,21 +115,8 @@
     </style>
 </head>
 <body>
+    
     <h1>Solicitudes de Crew</h1>
-
-    <h2>Enviar Solicitud</h2>
-    <form action="{{ route('applications.store') }}" method="POST">
-        @csrf
-        <label for="crews_id">Seleccionar Crew:</label>
-        <select name="crews_id" id="crews_id" required>
-            <option value="" disabled selected>Selecciona una crew</option>
-            @foreach ($crews as $crew)
-                <option value="{{ $crew->id }}">{{ $crew->name }}</option>
-            @endforeach
-        </select>
-        <button type="submit">Enviar Solicitud</button>
-    </form>
-
     @if (auth()->user()->role && auth()->user()->role->isAdmin)
         <h2>Solicitudes Pendientes</h2>
         @if ($applications->isEmpty())
@@ -179,6 +166,19 @@
                 </tbody>
             </table>
         @endif
+        @else
+        <h2>Enviar Solicitud</h2>
+    <form action="{{ route('applications.store') }}" method="POST">
+        @csrf
+        <label for="crews_id">Seleccionar Crew:</label>
+        <select name="crews_id" id="crews_id" required>
+            <option value="" disabled selected>Selecciona una crew</option>
+            @foreach ($crews as $crew)
+                <option value="{{ $crew->id }}">{{ $crew->name }}</option>
+            @endforeach
+        </select>
+        <button type="submit">Enviar Solicitud</button>
+    </form>
     @endif
 </body>
 </html>
