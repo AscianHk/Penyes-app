@@ -13,7 +13,7 @@ class users_crews extends Model
     protected $table = 'users_crews'; 
 
     // Definir los atributos que son asignables
-    protected $fillable = ['user_id', 'crew_id', 'year'];
+    protected $fillable = ['user_id', 'crews_id', 'year'];
 
     // Relación inversa: un registro de 'users_crews' pertenece a un 'user'
     public function user()

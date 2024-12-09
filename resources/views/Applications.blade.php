@@ -117,7 +117,6 @@
 <body>
     <h1>Solicitudes de Crew</h1>
 
-    <!-- Formulario para enviar solicitud -->
     <h2>Enviar Solicitud</h2>
     <form action="{{ route('applications.store') }}" method="POST">
         @csrf
@@ -131,7 +130,6 @@
         <button type="submit">Enviar Solicitud</button>
     </form>
 
-    <!-- Si el usuario tiene permisos de admin -->
     @if (auth()->user()->role && auth()->user()->role->isAdmin)
         <h2>Solicitudes Pendientes</h2>
         @if ($applications->isEmpty())
@@ -154,7 +152,7 @@
                             <td>{{ $application->user ? $application->user->name : 'Sin usuario' }}</td>
                             <td>
                                 @foreach ($application->crews as $crew)
-                                    {{ $crew->name }} <!-- Nombre de cada crew -->
+                                    {{ $crew->name }} 
                                 @endforeach
                             </td>
                             <td>{{ $application->status }}</td>

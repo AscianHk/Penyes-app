@@ -158,12 +158,12 @@
     <div class="crews-section">
         <h2>Peñas Disponibles</h2>
         <ul>
-            <!-- Iterar sobre las crews para mostrar los datos de cada una -->
+           
             @foreach ($crews as $crew)
                 <li>
                     <span>{{ $crew->name }}</span>
-                    <!-- Botón de Unirse redirige a /crews/{id} -->
-                    <a href="{{ url('/crews/' . $crew->id) }}" class="join-button">Unirse</a>
+                  
+                    <a href="{{ url('/crews/' . $crew->id) }}" class="join-button">Ver mas</a>
                 </li>
             @endforeach
         </ul>

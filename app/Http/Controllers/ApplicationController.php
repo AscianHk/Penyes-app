@@ -50,6 +50,8 @@ class ApplicationController extends Controller
         $user = Auth::user();
     
         $application = Application::findOrFail($id); 
+        // echo "<pre>";
+        // dd($application->toArray());
    
         if ($user && $user->role && $user->role->isAdmin == false) {
             return response()->json(['message' => 'No tienes permisos para realizar esta acción.'], 403);
@@ -61,7 +63,7 @@ class ApplicationController extends Controller
             users_crews::create([
                 'user_id' => $application->user_id,  
                 'crews_id' => $application->crews_id,  
-                'year' => now()->year, 
+                'year' => now()->format('Y-m-d'), 
             ]);
     
         

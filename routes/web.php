@@ -7,6 +7,7 @@ use App\Models\Application;
 use App\Models\crews;
 use App\Models\roles;
 use App\Models\User;
+use App\Models\users_crews;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
