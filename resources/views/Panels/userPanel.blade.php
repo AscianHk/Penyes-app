@@ -140,8 +140,22 @@
         .join-button:hover {
             background-color: #45a049;
         }
-
     </style>
+    {{-- <script>
+        import swal from 'sweetalert2';
+        const Swal = require('sweetalert2')
+        function botonsin(){
+        const boton = document.getElementById("algo")
+        let cesped = Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'})
+
+        }
+        return ;
+
+    </script> --}}
 </head>
 <body>
 
@@ -151,8 +165,6 @@
         <h1>Front Office</h1>
 
         <a href="/deleteacc">Borrar cuenta</a>
-
-        <a href="/crews">Ver Peñas</a>
     </div>
 
     <div class="crews-section">
@@ -167,6 +179,7 @@
                 </li>
             @endforeach
         </ul>
+        <button id="algo">asodq</button>
     </div>
 
 </body>

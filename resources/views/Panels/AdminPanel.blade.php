@@ -6,173 +6,164 @@
     <title>Admin Panel</title>
     
     <style>
-      
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
 
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
+.admin-panel {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
 
-        h1 {
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
+.admin-panel h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
 
-        .navbar {
-            background-color: #4CAF50;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
+.admin-box {
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #e8f5e9;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
+.admin-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-        .navbar ul li {
-            margin: 0 15px;
-        }
 
-        .navbar ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+.options-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
 
-        .navbar ul li a:hover {
-            color: #f4d03f;
-        }
+.secondary-option {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-        .panel {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
+.secondary-option:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
 
-        .panel h2 {
-            color: #4CAF50;
-            margin-bottom: 15px;
-        }
+/* Formularios */
+.form-container {
+    display: none;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .panel .secondary-option {
-            background-color: #e8f5e9;
-            border: 1px solid #4CAF50;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.form-container h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #4CAF50;
+}
 
-        .panel .secondary-option:hover {
-            background-color: #c8e6c9;
-        }
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-        }
+.form-container form input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
-        form input[type="text"],
-        form input[type="email"],
-        form input[type="password"],
-        form input[type="date"],
-        form input[type="submit"] {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.form-container form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        form input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.form-container form input[type="submit"]:hover {
+    background-color: #45a049;
+}
 
-        form input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-            }
-
-            .navbar ul li {
-                margin: 10px 0;
-            }
-
-            .panel {
-                margin: 10px;
-                padding: 15px;
-            }
-        }
-        .view-applications-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
     </style>
 </head>
 <body>
-
-
-   
-
-
-    <div class="panel">
+    @include('./parts/navbar')
+    <div class="admin-panel">
         <h1>Back Office</h1>
-
-        <a href="/applications" class="view-applications-btn">Ver Solicitudes</a>
-
-        <h2>Opciones del Administrador</h2>
-
-        <div class="secondary-option" id="create-user-option">
-            <h3>Crear Usuario</h3>
+    
+        <!-- Caja principal de opciones -->
+        <div class="admin-box">
+            <h2>Opciones del Administrador</h2>
+    
+            <!-- Botones de opciones -->
+            <div class="options-container">
+                <div class="secondary-option" id="create-user-option">
+                    <h3>Crear Usuario</h3>
+                </div>
+                <div class="secondary-option" id="create-crew-option">
+                    <h3>Crear Crew</h3>
+                </div>
+                <a href="/applications" class="secondary-option" id="view-requests-option">
+                    <h3>Ver Solicitudes</h3>
+                </a>
+            </div>
+    
+            <!-- Formulario "Crear Usuario" -->
+            <div id="create-user-form" class="form-container" style="display:none;">
+                <h3>Formulario de Registro</h3>
+                @include('./Auth/register')
+            </div>
+    
+            <div id="create-crew-form" class="form-container" style="display:none;">
+                <h3>Formulario de Crear Crew</h3>
+                @include('./Auth/Create_crew')
+            </div>
         </div>
-
-
-        <div id="create-user-form" style="display:none;">
-            <h3>Formulario de Registro</h3>
-            @include('./Auth/register')
-        </div>
-
-        <script>
-            document.getElementById('create-user-option').onclick = function() {
-                var form = document.getElementById('create-user-form');
-                form.style.display = form.style.display === 'none' ? 'block' : 'none';
-            }
-        </script>
     </div>
 </body>
+<script>
+    document.getElementById('create-user-option').onclick = function() {
+        var userForm = document.getElementById('create-user-form');
+        userForm.style.display = userForm.style.display === 'none' || userForm.style.display === '' ? 'block' : 'none';
+    };
+
+    document.getElementById('create-crew-option').onclick = function() {
+        var crewForm = document.getElementById('create-crew-form');
+        crewForm.style.display = crewForm.style.display === 'none' || crewForm.style.display === '' ? 'block' : 'none';
+    };
+</script>
+
 </html>

@@ -19,64 +19,63 @@ class ApplicationController extends Controller
         if (!Auth::check()) {
             return response()->json(['message' => 'Usuario no autenticado'], 401);
         }
-    
+
         $request->validate([
             'crews_id' => 'required|exists:crews,id',
         ]);
-    
+
         $userId = Auth::id(); 
 
         $existingApplication = Application::where('user_id', $userId)
                                            ->where('crews_id', $request->crews_id)
                                            ->where('status', 'pending')
                                            ->first();
-    
+
         if ($existingApplication) {
-            return response()->json(['message' => 'Ya tienes una solicitud pendiente para esta crew.'], 400);
+            return back()->with('error', 'Ya tienes una solicitud pendiente para esta peña.');
         }
-    
-        // Crear la solicitud
+
         $application = Application::create([
             'user_id' => $userId,
-            'crews_id' => $request->crews_id,  
+            'crews_id' => $request->crews_id,
             'status' => 'pending',
         ]);
-    
-        return response()->json(['message' => 'Solicitud enviada correctamente.']);
+
+        return redirect()->route('applications.index')->with('success', 'Solicitud enviada con éxito.');
     }
+
+
     
     public function updateStatus($id, Request $request)
     {
         $user = Auth::user();
+        $application = Application::findOrFail($id);
     
-        $application = Application::findOrFail($id); 
-        // echo "<pre>";
-        // dd($application->toArray());
-   
-        if ($user && $user->role && $user->role->isAdmin == false) {
-            return response()->json(['message' => 'No tienes permisos para realizar esta acción.'], 403);
+        if ($user && $user->role && !$user->role->isAdmin) {
+            return redirect()->route('applications.index')->with('error', 'No tienes permisos para realizar esta acción.');
         }
     
-   
         if ($request->status == 'accepted') {
-          
-            users_crews::create([
-                'user_id' => $application->user_id,  
-                'crews_id' => $application->crews_id,  
-                'year' => now()->format('Y-m-d'), 
+            Users_Crews::create([
+                'user_id' => $application->user_id,
+                'crews_id' => $application->crews_id,
+                'year' => now()->format('Y-m-d'),
             ]);
     
-        
             $application->status = 'accepted';
             $application->save();
+    
+            return redirect()->route('applications.index')
+                ->with('success', 'Solicitud aceptada y usuario agregado a la crew');
         } else {
-       
             $application->status = 'denied';
             $application->save();
-        }
     
-        return response()->json(['message' => 'Solicitud procesada correctamente.']);
+            return redirect()->route('applications.index')
+                ->with('error', 'Solicitud denegada');
+        }
     }
+    
     
 
 

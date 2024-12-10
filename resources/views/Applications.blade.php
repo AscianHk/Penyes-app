@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitudes de Crew</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <style>
         * {
             margin: 0;
@@ -115,8 +116,28 @@
     </style>
 </head>
 <body>
+    @include('./parts/navbar')
     
     <h1>Solicitudes de Crew</h1>
+
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@elseif(session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '{{ session('error') }}',
+        });
+    </script>
+@endif
+
     @if (auth()->user()->role && auth()->user()->role->isAdmin)
         <h2>Solicitudes Pendientes</h2>
         @if ($applications->isEmpty())

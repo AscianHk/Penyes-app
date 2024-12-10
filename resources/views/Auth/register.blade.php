@@ -3,7 +3,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Register</title>
 
-        <!-- CSS integrado dentro del HTML -->
+        @push('register')
         <style>
             * {
                 margin: 0;
@@ -11,7 +11,7 @@
                 box-sizing: border-box;
             }
 
-            /* Fondo y tipografía */
+
             body {
                 font-family: 'Arial', sans-serif;
                 background-color: #f4f4f4;
@@ -21,7 +21,6 @@
                 height: 100vh;
             }
 
-            /* Contenedor principal */
             .register-container {
                 background-color: white;
                 padding: 20px 40px;
@@ -91,6 +90,7 @@
                 }
             }
         </style>
+        @endpush
     </head>
     <body>
         <!-- Formulario de registro -->

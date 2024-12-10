@@ -57,13 +57,10 @@ Route::get('/crews/{id}', function($id){
     return view('crew')->with('crews', $crew); 
 });
 
-Route::middleware(['auth'])->group(function () {
-    
-    Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
+Route::middleware('auth')->group(function() {
+    Route::get('/applications', [ApplicationController::class, 'index'])->name('applications.index');
+    Route::patch('/applications/{id}', [ApplicationController::class, 'updateStatus'])->name('applications.update');
     Route::post('/applications', [ApplicationController::class, 'store'])->name('applications.store');
-    Route::post('/applications/join', [ApplicationController::class, 'store'])->name('applications.store');
-
-    Route::patch('/applications/{application}', [ApplicationController::class, 'updateStatus'])->name('applications.update');
 });
 
 
@@ -98,6 +95,20 @@ Route::post('/register', function(Request $request){
     $role->save();
 
     return redirect('/');
+});
+
+Route::post('/createcrew', function(Request $request){
+    $crew = new crews();
+
+    $crew->name= $request->input('name');
+    $crew->color= $request->input('color');
+    $crew->slogan= $request->input('slogan');
+    $crew->capacity= $request->input('capacity');
+    $crew->foundation_date = $request->input('foundation_date');
+    
+    $crew->save();
+
+    return redirect('./Panels/AdminPanel');
 });
 
 
