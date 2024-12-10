@@ -152,7 +152,10 @@ body {
             </div>
         </div>
     </div>
-    
+    <div class="Crews-images">
+        <img src="">
+
+    </div>
 </body>
 <script>
     document.getElementById('create-user-option').onclick = function() {
