@@ -2,8 +2,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Register</title>
-
-        @push('register')
         <style>
             * {
                 margin: 0;
@@ -90,10 +88,9 @@
                 }
             }
         </style>
-        @endpush
+
     </head>
     <body>
-        <!-- Formulario de registro -->
         <div class="register-container">
             <h1>Register</h1>
             <form action="/register" method="POST">

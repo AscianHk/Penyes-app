@@ -75,7 +75,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Formularios */
 .form-container {
     display: none;
     margin-top: 20px;
@@ -124,11 +123,11 @@ body {
     <div class="admin-panel">
         <h1>Back Office</h1>
     
-        <!-- Caja principal de opciones -->
+        
         <div class="admin-box">
             <h2>Opciones del Administrador</h2>
     
-            <!-- Botones de opciones -->
+            
             <div class="options-container">
                 <div class="secondary-option" id="create-user-option">
                     <h3>Crear Usuario</h3>
@@ -141,10 +140,10 @@ body {
                 </a>
             </div>
     
-            <!-- Formulario "Crear Usuario" -->
+            
             <div id="create-user-form" class="form-container" style="display:none;">
                 <h3>Formulario de Registro</h3>
-                @include('./Auth/register')
+                @include('./Auth/other-register')
             </div>
     
             <div id="create-crew-form" class="form-container" style="display:none;">
