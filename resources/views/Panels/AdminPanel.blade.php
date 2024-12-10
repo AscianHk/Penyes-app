@@ -152,6 +152,14 @@ body {
             </div>
         </div>
     </div>
+    <div class="slider">
+        <div class="slider-container">
+            <div class="slider-item"><img src="{{asset('img/img3.jpg')}}" alt="Imagen 1"></div>
+            <div class="slider-item"><img src="{{asset('img/img2.jpg')}}" alt="Imagen 2"></div>
+            <div class="slider-item"><img src="{{asset('img/img1.jpg')}}" alt="Imagen 3"></div>
+        </div>
+        <div class="slider-nav"></div>
+    </div>
 </body>
 <script>
     document.getElementById('create-user-option').onclick = function() {
