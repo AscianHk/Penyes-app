@@ -141,21 +141,6 @@
             background-color: #45a049;
         }
     </style>
-    {{-- <script>
-        import swal from 'sweetalert2';
-        const Swal = require('sweetalert2')
-        function botonsin(){
-        const boton = document.getElementById("algo")
-        let cesped = Swal.fire({
-        title: 'Error!',
-        text: 'Do you want to continue',
-        icon: 'error',
-        confirmButtonText: 'Cool'})
-
-        }
-        return ;
-
-    </script> --}}
 </head>
 <body>
 
@@ -170,7 +155,6 @@
     <div class="crews-section">
         <h2>Peñas Disponibles</h2>
         <ul>
-           
             @foreach ($crews as $crew)
                 <li>
                     <span>{{ $crew->name }}</span>
@@ -179,7 +163,6 @@
                 </li>
             @endforeach
         </ul>
-        <button id="algo">asodq</button>
     </div>
 
 </body>

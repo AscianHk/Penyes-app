@@ -159,6 +159,7 @@
                             <td>{{ $application->id }}</td>
                             <td>{{ $application->user ? $application->user->name : 'Sin usuario' }}</td>
                             <td>
+                                {{-- @dd($application->crews->name) --}}
                                 @foreach ($application->crews as $crew)
                                     {{ $crew->name }} 
                                 @endforeach

@@ -138,6 +138,7 @@ body {
                 <a href="/applications" class="secondary-option" id="view-requests-option">
                     <h3>Ver Solicitudes</h3>
                 </a>
+                <a href="/draws" class="secondary-option" id="make-draw-option">Ir a Sorteos</a>
             </div>
     
             

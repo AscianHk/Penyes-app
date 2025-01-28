@@ -8,6 +8,7 @@ use App\Models\crews;
 use App\Models\roles;
 use App\Models\User;
 use App\Models\users_crews;
+use Database\Seeders\CrewsSeeder;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -109,6 +110,12 @@ Route::post('/createcrew', function(Request $request){
     $crew->save();
 
     return redirect('./Panels/AdminPanel');
+});
+
+
+Route::get('/draws', function(){
+    return view('draw');
+
 });
 
 

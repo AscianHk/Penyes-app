@@ -17,7 +17,7 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
         if (!Auth::check()) {
-            return response()->json(['message' => 'Usuario no autenticado'], 401);
+            return redirect('/');
         }
 
         $request->validate([
@@ -86,7 +86,7 @@ public function index()
     $applications = Application::with(['user', 'crews'])
         ->where('status', 'pending')  
         ->get();
-        $crews = Crews::all();
+        $crews = crews::all();
 
     return view('Applications', compact('applications',  'crews'));
 }
@@ -107,7 +107,6 @@ public function accept(Request $request, $applicationId)
         ]);
     }
 
-    // Cambiar el estado de la solicitud
     $application->status = 'accepted';
     $application->save();
 
