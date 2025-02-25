@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slogan');
             $table->integer('capacity');
             $table->date('foundation_date');
+            $table->string('Logo')->nullable();
             $table->timestamps();
         });
     }

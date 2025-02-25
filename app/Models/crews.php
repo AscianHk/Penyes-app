@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class crews extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['name', 'capacity'];
 
 
 public function applications()

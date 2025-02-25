@@ -1,8 +1,11 @@
 <?php
 
-
+use App\Http\Controllers\DrawsController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\CrewsController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\EsAdmin;
+use App\Mail\ContactForm;
 use App\Models\Application;
 use App\Models\crews;
 use App\Models\roles;
@@ -15,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 // use Inertia\Inertia;
 
@@ -65,37 +69,59 @@ Route::middleware('auth')->group(function() {
 });
 
 
-
+Route::post('/deletedraw', function(){
+    DB::delete("DELETE FROM locations WHERE year=2025");
+    return redirect('/draw');
+});
 
 Route::get('/UserPanel', function(){
     return view('./Panels/userPanel')
     ->with('crews', crews::all());
 });
 
-Route::get('/AdminPanel', function(){
-    return view('./Panels/AdminPanel');
+Route::get('/AdminPanel', function () {
+    $users = User::with('crews')->get();
+    $crews = crews::all();
+
+    return view('./Panels/AdminPanel', compact('users', 'crews'));
 });
 
-Route::post('/register', function(Request $request){
-    $user =  new User();
-    $role = new roles();
-    
-    // $user->id = uniqid();
-    $user->name = $request->input('name');
-    $user->surname = $request->input('surname');
-    $user->email = $request->input('email');
-    $user->birthday_date = $request->input('birth_date');
-    $user->password = Hash::make($request->input('password'));
-    $user->roles_id = $role->id;
-    $user->save();
+Route::post('/register', function(Request $request) {
+    try {
+        $user = new User();
+        $role = new roles();
+        
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->email = $request->input('email');
+        $user->birthday_date = $request->input('birth_date');
+        $user->password = Hash::make($request->input('password'));
+        $user->roles_id = $role->id;
+        
+        $user->save();
+        
+        $role->isAdmin = false; // Set false by default for new users
+        $role->user_id = $user->id;
+        $role->save();
 
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Usuario creado correctamente'
+            ]);
+        }
 
-    
-    $role->isAdmin;
-    $role->user_id = $user->id;
-    $role->save();
-
-    return redirect('/');
+        return redirect('/')->with('success', 'Usuario creado correctamente');
+    } catch (\Exception $e) {
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al crear el usuario: ' . $e->getMessage()
+            ], 500);
+        }
+        
+        return back()->with('error', 'Error al crear el usuario');
+    }
 });
 
 Route::post('/createcrew', function(Request $request){
@@ -109,13 +135,38 @@ Route::post('/createcrew', function(Request $request){
     
     $crew->save();
 
-    return redirect('./Panels/AdminPanel');
+    return redirect('/AdminPanel');
 });
 
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('/crews/{id}/edit', [CrewsController::class, 'edit'])->name('crews.edit'); // Ruta para editar
+Route::patch('/crews/{id}', [CrewsController::class, 'update'])->name('crews.update');
+Route::delete('/crews/{id}', [CrewsController::class, 'destroy'])->name('crews.destroy'); // Ruta para eliminar
 
-Route::get('/draws', function(){
-    return view('draw');
 
+Route::get('/draw/{year?}', [DrawsController::class, 'show'])->name('draw.show');
+Route::post('/draw', [DrawsController::class, 'draw'])->name('draw.draw');
+
+// Route::get('/draw', function () {
+//     return view('draw');
+// })->middleware('auth');
+
+
+
+Route::post('/contact', function (Request $request) {
+    try {
+        Mail::to('admin@example.com')->send(new ContactForm($request->all()));
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Mensaje enviado correctamente'
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Error al enviar el mensaje: ' . $e->getMessage()
+        ], 500);
+    }
 });
 
 

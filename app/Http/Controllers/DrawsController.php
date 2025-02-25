@@ -9,7 +9,7 @@ use App\Models\locations;
 use Illuminate\Http\Request;
 
 
-class DrawController extends Controller
+class DrawsController extends Controller
 {
 
     const MAX_HEIGHT = 5;
@@ -22,6 +22,12 @@ class DrawController extends Controller
         if(is_null($year)){
             $year = $currentYear;
         }
+
+        
+
+        $crews = crews::all();
+
+
         $locations = locations::where('year', $year)->with('crew')->get();
         $showDrawButton = true;
 
@@ -31,13 +37,15 @@ class DrawController extends Controller
         $rangeYears = range($currentYear-4, $currentYear);
         rsort($rangeYears);
 
-        return view('draws.drawsAdminView', [
+        return view('draw', [
             'locations' => $locations,
             'year' => $year ?? now()->year,
             'showDrawButton' => $showDrawButton,
-            'rangeYears' => $rangeYears
+            'rangeYears' => $rangeYears,
+            'crews' => $crews 
         ]);
     }
+
 
 
 
@@ -45,9 +53,12 @@ class DrawController extends Controller
     // Perform the draw process and assign locations to crews
     public function draw(Request $request)
     {
+
+        // dd('Entré en el método draw');
         $year = $request->year ?? now()->year;
         $crews = crews::all()->pluck('name', 'id');
         $locations = locations::where('year', $year)->get();
+
 
         if (count($crews) === 0) {
             return back()->withErrors('No hay peñas disponibles para este año.');
@@ -70,12 +81,13 @@ class DrawController extends Controller
             }    
         }
        
+
         $locations = [];
         foreach ($places as $crewId => $coord) {
             $locations[] = [
                 'x' => $coord[0], //x
                 'y' => $coord[1], //y
-                'crew_id' => $crewId, // Avoid assigning crew_id if it's "No Crew"
+                'crews_id' => $crewId, // Avoid assigning crew_id if it's "No Crew"
                 'year' => $year
             ];
         }
@@ -83,6 +95,7 @@ class DrawController extends Controller
         foreach ($locations as $location) {
             locations::create($location); 
         }
+
 
         return redirect()->route('draw.show', ['year' => $year]);
     }

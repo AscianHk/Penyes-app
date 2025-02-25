@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\crews;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,9 +14,10 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('x');
-            $table->string('y');
-            $table->date('year');
+            $table->integer('x');
+            $table->integer('y');
+            $table->foreignIdFor(crews::class);
+            $table->integer('year');
             $table->timestamps();
         });
     }

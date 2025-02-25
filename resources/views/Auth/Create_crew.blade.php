@@ -10,8 +10,5 @@
             <input type="date" name="foundation_date" class="input-field" placeholder="Foundation date">
             <input type="submit" class="submit-btn" value="Register">
         </form>
-        <div class="form-footer">
-            <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
-        </div>
     </div>
 </body>

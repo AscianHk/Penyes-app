@@ -5,62 +5,55 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorecrewsRequest;
 use App\Http\Requests\UpdatecrewsRequest;
 use App\Models\crews;
+use Illuminate\Http\Request;
 
 class CrewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function edit($id)
     {
-        //
+        $crew = crews::find($id);
+
+        if (!$crew) {
+            return redirect()->back()->with('error', 'Peña no encontrada.');
+        }
+
+        return view('edit', compact('crew')); // Asegúrate de que esta vista exista
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function update(Request $request, $id)
+{
+    try {
+        $crew = crews::findOrFail($id);
+        
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'capacity' => 'required|integer|min:1'
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorecrewsRequest $request)
-    {
-        //
-    }
+        $crew->update($validated);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(crews $crews)
-    {
-        //
+        return response()->json([
+            'success' => true,
+            'message' => 'Peña actualizada correctamente'
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Error al actualizar la peña: ' . $e->getMessage()
+        ], 500);
     }
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(crews $crews)
+    public function destroy($id)
     {
-        //
-    }
+        $crew = crews::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatecrewsRequest $request, crews $crews)
-    {
-        //
-    }
+        if (!$crew) {
+            return redirect()->back()->with('error', 'Peña no encontrada.');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(crews $crews)
-    {
-        //
+        $crew->delete();
+
+        return redirect()->back()->with('success', 'Peña eliminada correctamente.');
     }
 }

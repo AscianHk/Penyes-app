@@ -10,8 +10,5 @@
             <input type="password" name="password" class="input-field" placeholder="Password" required>
             <input type="submit" class="submit-btn" value="Register">
         </form>
-        <div class="form-footer">
-            <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
-        </div>
     </div>
 </body>

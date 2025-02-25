@@ -1,111 +1,134 @@
- <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Register</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+    background-image: url('{{ asset('Imagenes/img-2.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 27, 42, 0.7);
+    z-index: 1;
+}
 
 
-            body {
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f4;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
+.register-container {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(27, 38, 59, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #e0e1dd;
+    backdrop-filter: blur(10px);
+}
 
+        h1 {
+            color: #1abc9c;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #2c3e50;
+            color: #e0e1dd;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            background: #34495e;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1abc9c;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #16a085;
+        }
+
+        .form-footer {
+            margin-top: 15px;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #1abc9c;
+            font-weight: bold;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
             .register-container {
-                background-color: white;
-                padding: 20px 40px;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                width: 100%;
-                max-width: 400px;
+                width: 90%;
+                padding: 20px;
             }
-
-            h1 {
-                text-align: center;
-                color: #4CAF50;
-                margin-bottom: 20px;
-            }
-
-            .input-field {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 15px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                font-size: 16px;
-            }
-
-            .input-field:focus {
-                border-color: #4CAF50;
-                outline: none;
-            }
-
-            .submit-btn {
-                width: 100%;
-                padding: 12px;
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                font-size: 18px;
-                font-weight: bold;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-
-            .submit-btn:hover {
-                background-color: #45a049;
-            }
-
-            .form-footer {
-                text-align: center;
-                margin-top: 15px;
-            }
-
-            .form-footer a {
-                text-decoration: none;
-                color: #4CAF50;
-                font-weight: bold;
-            }
-
-            .form-footer a:hover {
-                text-decoration: underline;
-            }
-
-            /* Responsividad */
-            @media (max-width: 768px) {
-                .register-container {
-                    padding: 20px;
-                    width: 90%;
-                }
-            }
-        </style>
-
-    </head>
-    <body>
-        <div class="register-container">
-            <h1>Register</h1>
-            <form action="/register" method="POST">
-                @csrf
-                <input type="text" name="name" class="input-field" placeholder="First Name" required>
-                <input type="text" name="surname" class="input-field" placeholder="Last Name" required>
-                <input type="date" name="birth_date" class="input-field" required>
-                <input type="email" name="email" class="input-field" placeholder="Email" required>
-                <input type="password" name="password" class="input-field" placeholder="Password" required>
-                <input type="submit" class="submit-btn" value="Register">
-            </form>
-            <div class="form-footer">
-                <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
-            </div>
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Registro</h1>
+        <form action="/register" method="POST">
+            @csrf
+            <input type="text" name="name" class="input-field" placeholder="Nombre" required>
+            <input type="text" name="surname" class="input-field" placeholder="Apellidos" required>
+            <input type="date" name="birth_date" class="input-field" required>
+            <input type="email" name="email" class="input-field" placeholder="Correo Electrónico" required>
+            <input type="password" name="password" class="input-field" placeholder="Contraseña" required>
+            <input type="submit" class="submit-btn" value="Registrarse">
+        </form>
+        <div class="form-footer">
+            <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
         </div>
-    </body>
-
-
+    </div>
+</body>
+</html>

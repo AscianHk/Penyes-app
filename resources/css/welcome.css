@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #4CAF50;
+    margin: 40px 0 20px;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.main-content p {
+    color: #ccc;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section {
+    margin: 40px 0;
+    background-color: #222;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.peñas-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.peña {
+    background-color: #222;
+    padding: 25px;
+    border-radius: 12px;
+    width: 30%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.peña:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
+    border-color: #4CAF50;
+}
+
+.peña h3 {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.peña p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 500px;
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.carousel-controls button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-controls .prev {
+    left: 20px;
+}
+
+.carousel-controls .next {
+    right: 20px;
+}
+
+.carousel-controls button:hover {
+    background: rgba(76, 175, 80, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background: #4CAF50;
+}
+
+.mapouter {
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.gmap_canvas {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.gmap_canvas iframe {
+    width: 100%;
+    height: 500px;
+}
+
+@media (max-width: 768px) {
+    .peñas-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .peña {
+        width: 90%;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+}
