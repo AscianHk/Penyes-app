@@ -348,260 +348,257 @@ document.getElementById('create-crew-option').onclick = function() {
     background-color: #1b263b !important;
     color: #e0e1dd !important;
     border-radius: 12px !important;
-}
+    }
 
-.swal2-title {
-    color: #1abc9c !important;
-    font-size: 24px !important;
-    margin-bottom: 20px !important;
-}
+    .swal2-title {
+        color: #1abc9c !important;
+        font-size: 24px !important;
+        margin-bottom: 20px !important;
+    }
 
-.register-form {
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
+    .register-form {
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
 
-.swal2-input-group {
-    margin-bottom: 20px !important;
-    text-align: left;
-}
+    .swal2-input-group {
+        margin-bottom: 20px !important;
+        text-align: left;
+    }
 
-.swal2-input-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #1abc9c;
-    font-weight: 500;
-}
+    .swal2-input-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #1abc9c;
+        font-weight: 500;
+    }
 
-.swal2-input {
-    width: 100% !important;
-    padding: 12px !important;
-    background-color: #2c3e50 !important;
-    border: 1px solid #34495e !important;
-    color: #e0e1dd !important;
-    border-radius: 8px !important;
-    font-size: 16px !important;
-    transition: all 0.3s ease !important;
-}
+    .swal2-input {
+        width: 100% !important;
+        padding: 12px !important;
+        background-color: #2c3e50 !important;
+        border: 1px solid #34495e !important;
+        color: #e0e1dd !important;
+        border-radius: 8px !important;
+        font-size: 16px !important;
+        transition: all 0.3s ease !important;
+    }
 
-.swal2-input:focus {
-    border-color: #1abc9c !important;
-    box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2) !important;
-    outline: none !important;
-}
+    .swal2-input:focus {
+        border-color: #1abc9c !important;
+        box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2) !important;
+        outline: none !important;
+    }
 
-.swal2-input::placeholder {
-    color: #95a5a6 !important;
-}
+    .swal2-input::placeholder {
+        color: #95a5a6 !important;
+    }
 
-/* Button styles */
-.swal2-confirm {
-    background: #1abc9c !important;
-    color: white !important;
-    padding: 12px 24px !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-    transition: all 0.3s ease !important;
-}
+    .swal2-confirm {
+        background: #1abc9c !important;
+        color: white !important;
+        padding: 12px 24px !important;
+        border-radius: 8px !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease !important;
+    }
 
-.swal2-cancel {
-    background: #e74c3c !important;
-    color: white !important;
-    padding: 12px 24px !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-    transition: all 0.3s ease !important;
-}
+    .swal2-cancel {
+        background: #e74c3c !important;
+        color: white !important;
+        padding: 12px 24px !important;
+        border-radius: 8px !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease !important;
+    }
 
-.swal2-confirm:hover {
-    background: #16a085 !important;
-    transform: translateY(-2px) !important;
-}
+    .swal2-confirm:hover {
+        background: #16a085 !important;
+        transform: translateY(-2px) !important;
+    }
 
-.swal2-cancel:hover {
-    background: #c0392b !important;
-    transform: translateY(-2px) !important;
-}
+    .swal2-cancel:hover {
+        background: #c0392b !important;
+        transform: translateY(-2px) !important;
+    }
 
-/* Date input specific styles */
-input[type="date"].swal2-input {
-    color: #e0e1dd !important;
-    padding: 10px 12px !important;
-}
-
-/* Number input specific styles */
-input[type="number"].swal2-input {
-    padding: 10px 12px !important;
-}
-
-/* Success popup styles */
-.swal2-success-circular-line-left,
-.swal2-success-circular-line-right,
-.swal2-success-fix {
-    background-color: #1b263b !important;
-}
-
-.swal2-icon.swal2-success .swal2-success-ring {
-    border-color: #1abc9c !important;
-}
-
-.swal2-icon.swal2-success [class^='swal2-success-line'] {
-    background-color: #1abc9c !important;
-}
-
-/* Error popup styles */
-.swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
-    background-color: #e74c3c !important;
-}
-
-/* Validation message styles */
-.swal2-validation-message {
-    background: #c0392b !important;
-    color: white !important;
-    border-radius: 6px !important;
-    margin-top: 15px !important;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: #0d1b2a;
-    color: #e0e1dd;
-    padding: 20px;
-}
-
-.admin-panel {
-    max-width: 1100px;
-    margin: 0 auto;
-    background-color: #1b263b;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-}
+    input[type="date"].swal2-input {
+        color: #e0e1dd !important;
+        padding: 10px 12px !important;
+    }
 
 
-.admin-panel h1 {
-    text-align: center;
-    color: #1abc9c;
-    margin-bottom: 25px;
-    font-size: 28px;
-}
+    input[type="number"].swal2-input {
+        padding: 10px 12px !important;
+    }
 
-.admin-box {
-    border: 2px solid #1abc9c;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #2c3e50;
-    margin-bottom: 20px;
-}
 
-.options-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 15px;
-}
+    .swal2-success-circular-line-left,
+    .swal2-success-circular-line-right,
+    .swal2-success-fix {
+        background-color: #1b263b !important;
+    }
 
-.secondary-option {
-    flex: 1;
-    text-align: center;
-    padding: 15px;
-    background-color: #1abc9c;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
+    .swal2-icon.swal2-success .swal2-success-ring {
+        border-color: #1abc9c !important;
+    }
 
-.secondary-option:hover {
-    background-color: #16a085;
-    transform: scale(1.05);
-}
+    .swal2-icon.swal2-success [class^='swal2-success-line'] {
+        background-color: #1abc9c !important;
+    }
 
-.table-container {
-    margin-top: 30px;
-    background-color: #1b263b;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    overflow-x: auto;
-}
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+    .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+        background-color: #e74c3c !important;
+    }
 
-th, td {
-    padding: 14px;
-    text-align: left;
-    border-bottom: 1px solid #34495e;
-}
+    .swal2-validation-message {
+        background: #c0392b !important;
+        color: white !important;
+        border-radius: 6px !important;
+        margin-top: 15px !important;
+    }
 
-th {
-    background-color: #1abc9c;
-    color: white;
-    text-align: center;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-tr:hover {
-    background-color: #2c3e50;
-}
+    body {
+        background-color: #0d1b2a;
+        color: #e0e1dd;
+        padding: 20px;
+    }
 
-.btn-delete, .btn-edit {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: opacity 0.3s, transform 0.2s;
-    text-align: center;
-    display: inline-block;
-}
-
-.btn-delete {
-    background-color: #e74c3c;
-    color: white;
-}
-
-.btn-edit {
-    background-color: #f4d03f;
-    color: black;
-}
-
-.btn-delete:hover, .btn-edit:hover {
-    opacity: 0.85;
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
     .admin-panel {
-        padding: 15px;
+        max-width: 1100px;
+        margin: 0 auto;
+        background-color: #1b263b;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .admin-panel h1 {
+        text-align: center;
+        color: #1abc9c;
+        margin-bottom: 25px;
+        font-size: 28px;
+    }
+
+    .admin-box {
+        border: 2px solid #1abc9c;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #2c3e50;
+        margin-bottom: 20px;
     }
 
     .options-container {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
     .secondary-option {
-        width: 100%;
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        background-color: #1abc9c;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .secondary-option:hover {
+        background-color: #16a085;
+        transform: scale(1.05);
+    }
+
+    .table-container {
+        margin-top: 30px;
+        background-color: #1b263b;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        overflow-x: auto;
     }
 
     table {
-        font-size: 14px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
     }
-}
+
+    th, td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid #34495e;
+    }
+
+    th {
+        background-color: #1abc9c;
+        color: white;
+        text-align: center;
+    }
+
+    tr:hover {
+        background-color: #2c3e50;
+    }
+
+    .btn-delete, .btn-edit {
+        padding: 10px 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: opacity 0.3s, transform 0.2s;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .btn-delete {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    .btn-edit {
+        background-color: #f4d03f;
+        color: black;
+    }
+
+    .btn-delete:hover, .btn-edit:hover {
+        opacity: 0.85;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .admin-panel {
+            padding: 15px;
+        }
+
+        .options-container {
+            flex-direction: column;
+        }
+
+        .secondary-option {
+            width: 100%;
+        }
+
+        table {
+            font-size: 14px;
+        }
+    }
 
 </style>
 </html>

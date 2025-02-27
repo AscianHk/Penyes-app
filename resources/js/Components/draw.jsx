@@ -38,7 +38,7 @@ const Draw = () => {
             setIsAdmin(data.isAdmin || false);
         } catch (error) {
             console.error('Error:', error);
-            // Manejo del error...
+
         }
     };
     const handleDraw = async () => {

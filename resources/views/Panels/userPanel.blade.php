@@ -92,6 +92,8 @@
         .sidebar h2 {
             color: #1abc9c;
             margin-bottom: 15px;
+            border-radius: 15px;
+            background-color: #1b262b
         }
 
         .sidebar p {
@@ -178,6 +180,18 @@
         <p><strong>Apellidos:</strong> {{ Auth::user()->surname }}</p>
         <p><strong>Correo:</strong> {{ Auth::user()->email }}</p>
         <p><strong>Fecha de Nacimiento:</strong> {{ Auth::user()->birthday_date }}</p>
+        <p><strong>Pertenece a: </strong>
+            
+
+{{--             
+           @if(($users_crews->user_id) )
+            <p>{{$crews->crew_name}}</p>            
+           @else
+           <p>ninguna</p>
+           
+            @endif --}}
+            
+        <p>
     </div>
 
     <div class="container">

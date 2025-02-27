@@ -76,7 +76,9 @@ Route::post('/deletedraw', function(){
 
 Route::get('/UserPanel', function(){
     return view('./Panels/userPanel')
-    ->with('crews', crews::all());
+    ->with('crews', crews::all())
+    ->with('userscrews', users_crews::all())
+    ->with('user', User::all());
 });
 
 Route::get('/AdminPanel', function () {

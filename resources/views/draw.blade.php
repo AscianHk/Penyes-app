@@ -57,7 +57,7 @@
 </html>
 <script>
     function borrar(e){
-        e.preventDefault(); // Prevenir envío automático del formulario
+        e.preventDefault(); 
         
         Swal.fire({
             title: "¿Quieres borrar el sorteo?",
@@ -82,7 +82,7 @@
 
 
 <style>
-    /* Estilos generales */
+  
     * {
         margin: 0;
         padding: 0;
@@ -105,7 +105,6 @@
         text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2);
     }
 
-    /* Tablero de celdas */
     .board {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -138,7 +137,6 @@
         transform: scale(1.2);
     }
 
-    /* Botón de sorteo */
     .btn-draw {
         background-color: #1abc9c;
         color: white;
@@ -161,7 +159,7 @@
         cursor: not-allowed;
     }
 
-    /* Selector de año */
+
     .year-selector {
         margin: 20px auto;
         text-align: center;
