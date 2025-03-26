@@ -124,10 +124,10 @@
 
 </body>
 <script>
-document.getElementById('create-user-option').onclick = function() {
-        var userForm = document.getElementById('create-user-form');
-        userForm.style.display = userForm.style.display === 'none' || userForm.style.display === '' ? 'block' : 'none';
-    };
+// document.getElementById('create-user-option').onclick = function() {
+//         var userForm = document.getElementById('create-user-form');
+//         userForm.style.display = userForm.style.display === 'none' || userForm.style.display === '' ? 'block' : 'none';
+//     };
 
 document.getElementById('create-crew-option').onclick = function() {
         var crewForm = document.getElementById('create-crew-form');
